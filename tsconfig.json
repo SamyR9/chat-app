@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target":"ES2022",                              "module":"NodeNext",                            "rootDir": "backend",
+    "moduleResolution": "NodeNext",
+    "outDir": "backend/dist",
+    "esModuleInterop":true,                         "forceConsistentCasingInFileNames":true,        "strict":true,                                  "skipLibCheck":true                            
+  },
+  "ts-node": {
+    "esm": true,
+  },
+  "include": ["backend/src/**/*", "backend/src/index.ts"],
+  "exclude": ["node_modules","**/*.spec.ts","frontend"]
+}
