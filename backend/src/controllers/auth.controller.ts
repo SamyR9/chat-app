@@ -93,6 +93,17 @@ export const logout = async (req: Request, res: Response): Promise<any> => {
 export const user = async(req: Request, res:Response):Promise<any> => {
   try {
     const user = await prisma.user.findUnique({where: {id:req.user.id}})
+
+    if(!user) {
+      return res.status(404).json({error: 'Please create an account'})
+    }
+
+    res.status(200).json({
+      id: user.id,
+      fullName: user.fullName,
+      username: user.username
+    })
+    
   } catch (error) {
     res.status(500).json({error:'Internal Server Error'})
   }
